@@ -50,17 +50,17 @@ Go back to the web console and have a look around. There isn't currently much to
 - If you click on the arrow icon at the top-right of your app icon you should get a web page opening up and saying "Hello World!" or something like that. 
 - There is also a link to the GitHub page if you want to examine the code. 
 - Congratulations! You have deployed your first application to an OpenShift Cluster!
-- To clean up your deployment, click on the app link (for these apps often called sample-app). A right sidebar will option and has an "Actions" menu on the top right. Click on it, and select "Delete Application". Confirm delete by typing the app name in the box. 
+- To clean up your deployment, click on the app link (for these apps often called sample-app). A right sidebar will option and has an "Actions" menu on the top right. Click on it, and select "Delete Deployment". Confirm delete by typing the app name in the box. 
 
 # 4. Changing a deployment
 To deploy your app, you didn't need to compile anything, or containerize your app - OpenShift did all this for you! OpenShift can also integrate your changes directly from a Git repo.
 - You will need to deploy an application from a repo you have write permissions to. A GitHub account is free and quick to sign up (https://github.com/signup), but *don't* use your work email address for it! 
 - Now go through the steps to add a sample application above and select the Basic Node.js project, but don't create it.
-- Instead, copy the repository link ( https://github.com/nodeshift-starters/devfile-sample.git) into the browser you logged into GitHub. On the top left of the page there is a ``Fork`` button. Click it and you should be offered to fork this project to your own GitHub repo. Make some kind of description to help you remember what you are doing!
+- Instead, copy the repository link ( https://github.com/nodeshift-starters/devfile-sample.git) into the browser you logged into GitHub. On the top right of the page there is a ``Fork`` button. Click it and you should be offered to fork this project to your own GitHub repo. Make some kind of description to help you remember what you are doing!
 - Now you should be pointed to your fork of the repository. Click on the green "Code" button and copy the repo URL.
 - Back in the OpenShift console, cancel your sample deployment and click on the ``+Add`` sidebar button again. Find the "Import from Git" option and click on that.
 - Copy the git URL of your fork into the url window and click "Create".
-- Once it is running you can verify by opening the OpenShift route link in the top left of the app icon.
+- Once it is running you can verify by opening the OpenShift route link in the top right of the app icon.
 - Now, in your GitHub fork, click on the file ``server.js`` and then click on the pencil on the top right to edit the file. Scroll down to the ``app.get`` method. Change the ``res.send`` message to your own personalized message.
 - Click "Commit Changes" down the bottom. 
 - Back in the OpenShift console, click on the ``Builds`` item in the left side-bar. You already have a BuildConfig for your sample app - OpenShift created it automatically. Click on the three dot menu on the right hand side and select ``Start build``
