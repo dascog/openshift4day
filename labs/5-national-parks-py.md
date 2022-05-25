@@ -34,7 +34,7 @@ OpenShift automatically creates a few special "users" called *Service Accounts* 
 - Click ``Create``
 - Back in the ``Topology`` view you can see your new application deployed! Once it is running click on the route icon on the top right of the app icon - after clicking through the usual warning you should see a world map.
 
-## 2. Spend some time looking through the deployment
+## 4. Spend some time looking through the deployment
 - Click on the app and choose the ``Details`` tab on the right hand panel. Scroll down to the **Labels** section and see that your labels have been correctly entered.
 - Under the ``Resources`` tab you can see there is one **Pod**, one **Service** and one **Route**. 
 - Click on the Pod link.. This brings up a whole lot more details and a lot more tabs. 
@@ -43,7 +43,7 @@ OpenShift automatically creates a few special "users" called *Service Accounts* 
 - Enter  ``ps x`` in the command line. You will see that there is an entry ``java -jar /parksmap.jar``, which is the process running your app. If you type ``ls /`` you are taken to the top level directory and you can see the ``parksmap.jar`` application file there. 
 
 
-## 3. Deploy a Python backend service
+## 5. Deploy a Python backend service
 - Click on ``+Add`` in the Developer perspective and click ``Import from Git``
 - Enter the following as the **Git Repo URL**: https://github.com/openshift-roadshow/nationalparks-py.git
 - There are multiple import strategies detected. Click on ``Edit Import Strategy`` and choose ``Builder Image``. Make sure Python is selected as the builder image and choose 3.6-ubi8 as the Builder Image version (it will not work with the default version). Note that the Dockerfile strategy has this builder image version hardcoded. 
@@ -61,12 +61,12 @@ OpenShift automatically creates a few special "users" called *Service Accounts* 
 - Click ``Create``
 
 
-## 4. View the Build Progress
+## 6. View the Build Progress
 - This app is deployed from the Python source code, so OpenShift needs to build its own Container image to run the code. 
 - Click on ``Builds`` in the left hand sidebar and choose the ``nationalparks`` build. 
 - From here you can see the progress of the Build - look under the ``Builds`` tab and you will see  build called something like ``nationalparks-1``. Select this and look at the ``Logs`` and ``Events`` tabs to follow the build progress.
 
-## 5. Deploy a Database
+## 7. Deploy a Database
 Now we will deploy and connect to a MongoDB NoSQL database. This is where the ``national-parks-app`` stores location information. 
 We can mark up the ``national-parks-app`` application as a backend for the map visualization tool, ``parksmap`` uses the OpenShift Container Platform discover mechanism to display the map automatically.
 
@@ -87,7 +87,7 @@ We can mark up the ``national-parks-app`` application as a backend for the map v
 ```
 - Click ``Create``
   
-## 6. Connecting the Database
+## 8. Connecting the Database
 There are a number of different ways to connect up a database to an application in OpenShift. Here we will look at creating a Secret object. This is a mechanism OpenShift uses to hold sensitive information like password. OpenShift secrets also provide a very simple way to mount to a running workload, which we will use in this case.
 
 - In the ``Developer`` perspective scroll down to the ``Secrets`` item on the left hand side panel.
@@ -107,7 +107,7 @@ There are a number of different ways to connect up a database to an application 
 - Select ``nationalparks`` from the ``Select a workload`` dropdown.
 - Click ``Save``
 
-## 7. Loading data and displaying the national parks map
+## 9. Loading data and displaying the national parks map
 Now we have all the components in place, we just need to load data into the database. 
 - From the ``Topology`` view, navigate to ``nationalparks`` and click on the route icon on the top-right. 
 - The URL should load and state "Welcome to the National Parks data service"
