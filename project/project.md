@@ -99,21 +99,21 @@ In this part you will use the command line to access your MySQL database and run
 You can include more champions if you like!
 
 ```
-    CREATE DATABASE IF NOT EXISTS `lolchampion`;
+CREATE DATABASE IF NOT EXISTS lolchampion;
 
-    USE `lolchampion`;
+USE lolchampion;
 
-    CREATE TABLE IF NOT EXISTS `lolchampion` (
-      `id` BIGINT NOT NULL AUTO_INCREMENT,
-      `dateCreated` DATETIME NULL DEFAULT NULL,
-      `difficulty` VARCHAR(255) NULL DEFAULT NULL,
-      `imageUrl` VARCHAR(255) NULL DEFAULT NULL,
-      `name` VARCHAR(255) NULL DEFAULT NULL,
-      `role` VARCHAR(255) NULL DEFAULT NULL,
-      PRIMARY KEY (`id`));
+CREATE TABLE IF NOT EXISTS LolChampion (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  dateCreated DATETIME NULL DEFAULT NULL,
+  difficulty VARCHAR(255) NULL DEFAULT NULL,
+  imageUrl VARCHAR(255) NULL DEFAULT NULL,
+  name VARCHAR(255) NULL DEFAULT NULL,
+  role VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (id));
 
-      INSERT INTO `lolchampion` values(1,"2013-06-13",`hard`,`https://static.wikia.nocookie.net/leagueoflegends/images/6/67/Aatrox_OriginalCentered.jpg`,`Aatrox the Darkin Blade`,`Juggernaut`);
-      INSERT INTO `lolchampion` values(1,"2011-12-14",`hard`,`https://static.wikia.nocookie.net/leagueoflegends/images/f/f1/Ahri_Render.png`,`Ahri the Nine-Tailed Fox`,`Burst`);
+  INSERT INTO LolChampion values(1,"2013-06-13","hard","https://static.wikia.nocookie.net/leagueoflegends/images/6/67/Aatrox_OriginalCentered.jpg","Aatrox the Darkin Blade","Juggernaut");
+  INSERT INTO LolChampion values(2,"2011-12-14","hard","https://static.wikia.nocookie.net/leagueoflegends/images/f/f1/Ahri_Render.png","Ahri the Nine-Tailed Fox","Burst");
 ```
 
 ### 2. Re-deploy the frontend using a Pipeline build and a webhook
