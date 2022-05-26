@@ -1,0 +1,12 @@
+apiVersion: "autoscaling.openshift.io/v1beta1"
+kind: "MachineAutoscaler"
+metadata:
+  name: "ose-5jc6d-worker-eu-west-2a" # good to choose a name that easily identifies machineset
+  namespace: "openshift-machine-api"
+spec:
+  minReplicas: 1                      # min number of replicas - AWS allows 0
+  maxReplicas: 12                     # max number of replicas - maxNodesTotal the ClusterAutoscaler has to be large enough
+  scaleTargetRef: 
+    apiVersion: machine.openshift.io/v1beta1
+    kind: MachineSet                  # always MachineSet
+    name: ose-5jc6d-worker-eu-west-2a # must match the name of an existing machine set

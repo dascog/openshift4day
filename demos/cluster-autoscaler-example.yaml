@@ -1,0 +1,28 @@
+apiVersion: "autoscaling.openshift.io/v1"
+kind: "ClusterAutoscaler"
+metadata:
+  name: "default"
+spec:
+  podPriorityThreshold: -10 # priority a pod must exceed to cause the autoscaler to deploy new nodes
+  resourceLimits:
+    maxNodesTotal: 24       # max nodes to deploy (control + worker)
+    cores:    
+      min: 8                # min cores to deploy on the cluster          
+      max: 128              # max cores to deploy on the cluster
+    memory:
+      min: 4                # min memory in GiB on the cluster
+      max: 256              # max memory in GiB on the cluster
+    gpus:                   # optional GPU deployment
+      - type: nvidia.com/gpu # only valid types are nvidia.com/gpu and amd.com/gpu
+        min: 0 
+        max: 16 
+      - type: amd.com/gpu 
+        min: 0 
+        max: 4 
+  scaleDown: 
+    enabled: true           # can autoscaler remove unecessary nodes?
+    delayAfterAdd: 10m      # optional waiting period to delete after a node has been added.
+    delayAfterDelete: 5m    # optional waiting period to delete after a node has been deleted
+    delayAfterFailure: 30s  # optional waiting period to delete after a failure has occured.
+    unneededTime: 5m        # optional period before an unecessary node can be deleted
+    utilizationThreshold: 0.4 # optional node utilization threshold before delete (must be less than 1)
