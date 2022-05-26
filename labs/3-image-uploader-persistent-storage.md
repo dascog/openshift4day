@@ -10,7 +10,7 @@ This lab follows directly on from 1-image0-uploader-deployment.md and presumes y
   - There is a bug in OpenShift so you might not have those arrows with some deployments. If that is the case, fire up your command line (remember you can copy the login command by clicking on your username in the top right corner of the page). The ``oc`` command for scaling the deployment is just ``oc scale --current-replicas=1 --replicas=0 deployment/image-uploader`` to scale down, and `oc scale --current-replicas=0 --replicas=1 deployment/image-uploader`` to scale up. 
 - When the new pod is scaled up, go back into the new Pod terminal and type ``ls uploads`` again. Your image file won't be there. No data persistence!
   
-## 1. Add a PersistentVolumeClaim for the Image Uploader Project
+## 2. Add a PersistentVolumeClaim for the Image Uploader Project
 - Go to the ``Administrator`` perspective and click on ``Storage`` in the left side bar.
 - Choose ``PersistentVolumeClaims`` and click on the ``Create PersistentVolumeClaim`` button.
 - Ensure the correct project is selected (top-left of the screen), and change the name to **oseXX-pvc**
@@ -21,7 +21,7 @@ This lab follows directly on from 1-image0-uploader-deployment.md and presumes y
 
 ## 2. Create a Volume for the App
 - In the ``Developer`` perspective click on ``Project`` in the left side bar.
-- Under the **Inventory** section, click on the ``Deployments`` link
+- Scroll down to the **Inventory** section, click on the ``Deployments`` link
 - Choose the ``image-uploader`` deployment
 - Click on the ``Actions`` menu on the top-right
 - Select the ``Add Storage`` option.

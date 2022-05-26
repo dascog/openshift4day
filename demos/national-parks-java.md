@@ -65,7 +65,7 @@ We will get OpenShift to build and containerize the Java app on the fly using So
 - In the **Git Repo URL** box insert ``https://github.com/openshift-roadshow/nationalparks.git``
 - Click on ``Edit import strategy`` and select ```Builder Image``. 
 - Ensure that Java is selected and set the **Builder Image version** to ``openjdk-11-ubi8`` in the dropdown.
-- In the **General** section, set the application dropdown to ``national-parks-app`` and set the **Name** to nationalparks.
+- In the **General** section, set the application dropdown to ``national-parks-app`` and set the **Name** to ``nationalparks``.
 - Set the **Resources** radio button to ``Deployment``
 - Leave the ``Add pipeline`` checkbox unchecked and ensure the ``Create a route to the Application`` box is checked.
 - Click the ``Show advanced Routing options`` link and ensure the ``Secure Route`` check box is checked and **TLS termination** is set to ``Edge``.

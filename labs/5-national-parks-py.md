@@ -11,7 +11,7 @@ OpenShift automatically creates a few special "users" called *Service Accounts* 
 - Switch to the ``Administrator`` perspective and scroll down the left side bar to ``User Management``, then click on ``RoleBindings``.
 - Click the ``Create binding`` button in the top right corner
 - In the **Name** box type ``sa-user-account``, and select your project namespace in the **Namespace** box (i.e. ``oseXX-np``).
-- In the **Role name** field search for ``view`` and select that as the Role name.
+- In the **Role name** field search for ``view`` as a single word (not as part of another phrase) and select that as the Role name.
 - In the **Subject** section, choose the ``ServiceAccount`` radio button.
 - In the **Subject namespace** field, select your ``oseXX-np`` namespace once again.
 - In the **Subject name** field enter ``default``.

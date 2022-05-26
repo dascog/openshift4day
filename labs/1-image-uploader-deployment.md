@@ -7,7 +7,7 @@ In this lab you will find your way around the Web Console by deploying a PhP pro
 
 ## 2. Add the App to your project
 - Click on the ``+Add`` item in the left sidebar, and select the ``Import from Git`` option. 
-- The **Git Repo URL** is https://github.com/OpenShiftInAction/image-uploader/
+- The **Git Repo URL** is https://github.com/OpenShiftInAction/image-uploader.git
 - There is only one branch (master) in the Repo, so you don't need to fill in the Git reference. 
 - Check that PHP is selected as the Builder.
 - In the **General** section set the Application to ``image-uploader-app``, and the Name to ``image-uploader``.

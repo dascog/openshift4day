@@ -23,7 +23,7 @@ In this lab you will once again deploy the simple Image Uploader we saw previous
 - When you build has succeeded go to the ``Topology`` view. Observe that your app has been joined by a ``Triggers`` app which contains the EventListener for your build Pipeline.
 
 ## 4. Find the EventListener URL
-- Go to the ``Projects`` view from the left hand sidebar and click on your project. 
+- Go to the ``Pipelines`` view from the left hand sidebar and click on your project. 
 - Find the **TriggerTemplates** section on the right hand side and note the URL.
 
 ## 5. Create a GitHub webhook

@@ -29,7 +29,10 @@ We can create a route with Edge TLS termination as follows:
         $ oc create route edge parksmap --service=parksmap
 ```
 - Verify your route is deployed with ``$ oc get route``
-- If you copy the route into your browser address bar you can see the frontend in action
+- You can get the exact route for your deployment using
+```
+    echo https://$(oc get route parksmap --template='{{ .spec.host}}')
+```
   - Remember that you will need to click through the various warnings if this is the first time opening this link.
 
 ## 5. Grant View Permissions to the default Service Account
@@ -56,12 +59,12 @@ We will get OpenShift to build and containerize the Java app on the fly using So
 
 - To create a new Java application using the Java 11 Builder Image enter the following command:
 ```
-        $ oc new-app java:11~https://github.com/openshift-roadshow/nationalparks.git --name=nationalparks --labels="app=national-parks-app,component=nationaparks,role=backend"
+        $ oc new-app java:11~https://github.com/openshift-roadshow/nationalparks.git --name=nationalparks --labels="app=national-parks-app,component=nationalparks,role=backend"
 ```
 - Notice we included in the build command the following labels for the app:
 ```
         app=national-parks-app
-        component=nationlaparks
+        component=nationalparks
         role=backend
 ```   
 - We can create a route with Edge TLS termination as follows:
@@ -109,7 +112,7 @@ Now we have everything set up to load the data into our MongoDB database.
   - What do you see? Nothing!
 - There is a second endpoint which will load data into the database:
 ```
-        $ start chrome https://$(oc get route nationalparks --template='{{ .spec.host}}')/ws/data/all
+        $ start chrome https://$(oc get route nationalparks --template='{{ .spec.host}}')/ws/data/load
 ```
   - You should see a string that tells you something like:
 ```
