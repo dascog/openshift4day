@@ -16,7 +16,7 @@ We will build up the deployment in stages. In the first case we will deploy the 
 - Click on the ``+Add`` button on the left sidebar and scroll down to the Git Repository option. 
 - Click on ``Import from Git``, and put in the URL of your fork of the Quarkus backend.
 - Click on ``Show advanced Git options``, and type ``main`` into the Git reference text box. This ensures the main branch will be used, which does not require a database.
-- Scroll down and ensure that Java is selected as the Builder (this should be selected automatically). Change the **Application Name** to ``noted``, and the **Name** to ``quarkus-backend``. 
+- Scroll down and ensure that Java is selected as the Builder - ensure ``Java 11-ubi8`` is selected! Change the **Application Name** to ``noted``, and the **Name** to ``quarkus-backend``. 
 - Under **Resources** ensure Deployment is selected.
 - Under **Pipelines** check the Add pipeline box, and under **Advanced options** uncheck the Create a Route to the Application checkbox - the backend service doesn't need to be accessible externally.
 - Click ``Create``
