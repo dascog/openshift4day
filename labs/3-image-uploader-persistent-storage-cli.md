@@ -5,10 +5,10 @@ This lab follows directly on from 1-image0-uploader-deployment-cli.md and presum
 - Ensure that you are in the right project space: ``$ oc project`` will tell you the current project you are in, if you need to change you will need either ``$ oc project oseXX-imageuploader`` or ``$ oc project image-uploader-cli`` (or whatever you named the project from lab 1).
 - Type ``$ oc get pods`` in the command line, you should see something like:
 ```
-    $ oc get pods
-    NAME                             READY   STATUS      RESTARTS   AGE
-    image-uploader-1-build           0/1     Completed   0          4d
-    image-uploader-89b7d5d4f-wbdx8   1/1     Running     3          3d23h
+$ oc get pods
+NAME                             READY   STATUS      RESTARTS   AGE
+image-uploader-1-build           0/1     Completed   0          4d
+image-uploader-89b7d5d4f-wbdx8   1/1     Running     3          3d23h
 ```
 - You can verify that you app does not have persistent memory by the following steps
   - Open your app route with ``$ start chrome https://$(oc get route image-uploader --template='{{ .spec.host}}')``
@@ -28,24 +28,24 @@ This lab follows directly on from 1-image0-uploader-deployment-cli.md and presum
 ## 2. Add a PersistentVolumeClaim for the Image Uploader Project
 - Copy the following code into a file called ``image-uploader-pvc.aml``:
 ```
-    apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      name: image-uploader-pvc
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 100Mi
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: image-uploader-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
 ```
 - Now create the PersistentVolumeClaim:
 ```
-    $ oc create -f image-uploader-pvc.yaml
+$ oc create -f image-uploader-pvc.yaml
 ```
 - The PersistentVolumeClaim will make a claim to any available PersistentVolume in the cluster that is suitable for its request. Attach to the running deployment at the mountpath ``/opt/app-route/src/upload`` in the pods with the following command:
 ```
-    $ oc set volume deploy/image-uploader --add --type=persistentVolumeClaim --mount-path=/opt/app-root/src/upload--claim-name=image-uploader-pvc
+$ oc set volume deploy/image-uploader --add --type=persistentVolumeClaim --mount-path=/opt/app-root/src/upload--claim-name=image-uploader-pvc
 ```
 - This will result in a new deployment. 
 

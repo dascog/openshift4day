@@ -16,7 +16,7 @@ This lab you will find your way around the ``oc`` CLI by deploying a PhP project
 ## 2. Add the App to your project
 - To create a new PhP application enter the following command:
 ```
-        $ oc new-app php~https://github.com/OpenShiftInAction/image-uploader.git --name image-uploader --labels 'app=image-uploader-app'
+        $ oc new-app php~https://github.com/OpenShiftInAction/image-uploader.git --name image-uploader --labels app=image-uploader-app
 ```
 - ``oc new-app`` will create the new application in the current project. The ``php~`` prefix to the git URL tells OpenShift that you want to build from source (you can specify this with ``--strategy=source`` as well) using a PhP Build Image. With ``--name`` we specify the name of the app, and ``--labels`` (or ``-l``) follows with a comma-separated list of ``labelname=labelvalue`` pairs. 
 - Expected output:
@@ -87,7 +87,7 @@ This lab you will find your way around the ``oc`` CLI by deploying a PhP project
         $ oc scale --current-replicas=2 --replicas=1 deployment/image-uploader
 ```
 
-## 6. Remove your Project (DON'T DO THIS if you are intending to do lab 3!)
+## 5. Remove your Project (DON'T DO THIS if you are intending to do lab 3!)
 Although this project has only one application, it has actually generated a number of resources: a Pod, a Service, a Deployment, a ReplicaSet, a BuildConfig, a Build, and ImageStream and a Route. 
 - You can list all these resources using:
 ```
