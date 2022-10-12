@@ -19,7 +19,7 @@ For those who feel confident with OpenShift, the minimal information you need is
 4. The app has Swagger enabled, so you can access it through the app route with ``/swagger-ui/`` appended.
 5. To deploy the frontend you need to fork the repo https://github.com/dascog/lolchampionsui to your own GitHub account and edit the src/environment/environment.prod.ts file to set ``apiUrl`` to the url of your REST backend service. You should deploy using the Dockerfile import strategy. 
 
-### Project in Steps
+### Main Project in Steps
 Here we will describe the project step by step for those who would prefer a more directed approach. This will focus on using the Web Console.
 
 #### 1. Create a new Project 
@@ -118,3 +118,11 @@ CREATE TABLE IF NOT EXISTS LolChampion (
 
 ### 2. Re-deploy the frontend using a Pipeline build and a webhook
 Redo the deployment of the frontend, but this time use a Pipeline build. Set up a webhook from the GitHub repository and demonstrate that it rebuilds when you make a change to your repo.
+
+### 3. Re-deploy the backend using a Secret to supply the DB environment variables
+If you have not already done so, remove any DB-related environment variables from your backend deployment. Then create a Secret with the DB information and apply the secret to your backend workload.
+
+## Stretch Project
+Create a template to encapsulate your deployment. The link below should give you enough information to manage it. Start with a template to deploy a single resource, then work up to your existing configuration.
+ https://docs.openshift.com/container-platform/4.11/openshift_images/using-templates.html 
+ 
